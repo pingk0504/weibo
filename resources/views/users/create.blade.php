@@ -8,8 +8,11 @@
       <h5>註冊</h5>
     </div>
     <div class="card-body">
+
+      @include('shared._errors')
+
       <form method="POST" action="{{ route('users.store') }}">
-        {{ csrf_field() }}
+        @csrf
 
           <div class="mb-3">
             <label for="name">名稱：</label>
