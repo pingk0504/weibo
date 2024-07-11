@@ -21,10 +21,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this ->validate($request, [
-            'name' =>'required|unique:users|max:50',
+            'name' =>'required|unique:users,name|max:50',
             'email' =>'required|email|unique:users|max:255',
             'password' =>'required|confirmed|min:6'
-        ]);
+       ]);
 
         $user = User::create([
             'name' => $request->name,
@@ -34,5 +34,6 @@ class UserController extends Controller
 
         session()->flash('success', '歡迎, 您倆在這裡開啟一段新的旅程~');
         return redirect()->route('users.show',[$user]);
+
     }
 }
