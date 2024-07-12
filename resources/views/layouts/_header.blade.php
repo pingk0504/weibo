@@ -16,8 +16,7 @@
           <a class="dropdown-item" id="logout" href="#">
             <form action="{{ route('logout')}}" method="POST">
               {{ csrf_field()}}
-
-              <input type="hidden" name="_method" value="DELETE">
+              {{ method_field('DELETE') }}
               <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
             </form>
           </a>
